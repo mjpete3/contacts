@@ -8,9 +8,13 @@ role :web, "10.10.1.116"                          # Your HTTP server, Apache/etc
 role :app, "10.10.1.116"                          # This may be the same as your `Web` server
 role :db,  "10.10.1.116", :primary => true # This is where Rails migrations will run
 
-set :user, "root"
+set :user, "mjpete"
 set :deploy_to, "/var/www/#{application}"
 set :use_sudo, false
+set :deploy_via, :remote_cache
+
+#this pain in the ass option allowed the remote sever to authenticate to github
+default_run_options[:pty] = true
 
 # If you are using Passenger mod_rails uncomment this:
 
@@ -24,6 +28,6 @@ after "deploy:bundle_gems", "deploy:restart"
    task :start do ; end
    task :stop do ; end
    task :restart, :roles => :app, :except => { :no_release => true } do
-     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+     run "touch #{File.join(current_path,'tmp','restart.txt')}"
    end
  end

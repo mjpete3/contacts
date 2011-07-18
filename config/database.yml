@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: contacts_production
   pool: 5
-  username: root
-  password:
+  username: contacts
+  password: contacts1234
   socket: /var/lib/mysql/mysql.sock
