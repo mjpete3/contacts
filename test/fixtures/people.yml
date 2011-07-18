@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  last_name: Petersen
+  first_name: Martin
+  middle_name: J
+  dob: "4/10/67"
+  user_id: 1
+
+two:
+  last_name: Dirato
+  first_name: Mark
+  middle_name: E
+  dob: "5/11/40"
+  user_id: 1

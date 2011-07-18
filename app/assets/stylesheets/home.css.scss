@@ -1,0 +1,25 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.home {
+  // Place scoped styles here
+  
+  .heading {
+    font-size: 24px;
+    color: #c4c3c3;
+    padding: 15px 15px 35px 15px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  
+    .left { float: left; }
+    .right { float: right; }
+    ol { height: 28px; }
+  }
+  
+  .text {
+    font-size: 14px;
+    padding: 15px 0px 25px 0px;
+  }
+}

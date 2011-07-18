@@ -1,0 +1,49 @@
+<%= render 'submenu' %>
+<%= render 'sidebarmenu' %>
+
+<div class='heading'>
+	<div class='left'>
+	Name:
+	<%= @person.last_name %>,   <%= @person.first_name %>
+	<% if !@person.middle_name.blank? %>
+		, <%= @person.middle_name %>
+	<% end %>
+	</div><div class='right'>
+	Date of Birth:<%= @person.dob%>
+	</div>
+</div>
+
+	<% if @address %>
+		<%@address.each do |addr|%>
+			<p><table>
+				<tr><td><b><%= addr.type_name %></b></td>
+					<td><%= link_to 'Edit', edit_addressinfo_path(addr.id) %></td>
+					<td><%= link_to 'Delete', addressinfo_path(addr.id), :confirm => 'Are you sure?', :method => :delete %></td>
+				</tr>
+				<tr><td><%= addr.address1 %></td></tr>
+				<% if !addr.address2.blank? %>
+					<tr><td><%= addr.address2 %></td></tr>
+				<% end %>
+				<tr><td><%= addr.city %></td><td><%= addr.state %></td><td><%= addr.zip %></td></tr>
+			</table></p>
+		<% end %>
+	<% end %>
+
+	<% if @contactinfo %>
+		<% @contactinfo.each do |cinfo| %>
+			<p><table>	
+				<tr><td><b><%= cinfo.type_name %></b></td>
+					<td><%= link_to 'Edit', edit_contactinfo_path(cinfo.id) %></td>
+					<td><%= link_to 'Delete', contactinfo_path(cinfo.id), :confirm => 'Are you sure?', :method => :delete %></td>
+				</tr>	
+				<tr>
+					<td><%= cinfo.contact %></td>
+					<td><%= cinfo.comment %></td>
+				</tr>
+			</table></p>
+		<% end %>
+	<% end %>
+
+
+
+

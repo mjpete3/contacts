@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  people_id: 1
+  type_ident: Address
+  type_name: Work Address
+  address1: 24 Emory Drive
+  address2: 
+  city: Lincroft
+  state: NJ
+  zip: 07738
+  user_id: 1
+
+two:
+  id: 2
+  people_id: 1
+  type_ident: Address
+  type_name: Home Address
+  address1: 24 Emory Drive
+  address2: Apt 2
+  city: Red Bank
+  state: NJ
+  zip: 07738
+  user_id: 1

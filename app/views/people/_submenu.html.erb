@@ -1,0 +1,10 @@
+<div class='sub_menu'>	
+	Jump to:
+	<%- Person.logged_in_user(current_user.id).pagination_letters.each do |letter| -%>
+		<%= link_to letter, people_path(:letter => letter) %>
+	<%- end -%>
+</div>
+
+<div class='sidebar'>
+	<%= link_to "Add Contact", new_person_path %>
+</div>
