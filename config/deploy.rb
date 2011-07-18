@@ -9,7 +9,7 @@ role :app, "10.10.1.116"                          # This may be the same as your
 role :db,  "10.10.1.116", :primary => true # This is where Rails migrations will run
 
 set :user, "mjpete"
-set :deploy_to, "/var/www/#{application}"
+set :deploy_to, "/var/www/html/#{application}"
 set :use_sudo, false
 set :deploy_via, :remote_cache
 
