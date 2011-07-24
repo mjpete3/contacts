@@ -1,4 +1,5 @@
 <div class= 'sidebar'>
+	<%= link_to "Add Contact", new_person_path %><br />
 	<%= link_to 'Edit Contact', edit_person_path(@person) %> <br />	 
 	<%= link_to 'Add New Address', :controller => :addressinfos, :action => :new, :id => @person.id %><br /> 
 	<%= link_to 'Add New Phone / Email', :controller => :contactinfos, :action => :new, :id => @person.id %><br />

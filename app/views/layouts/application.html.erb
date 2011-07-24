@@ -9,34 +9,48 @@
 <body class = <%= params[:controller].parameterize %> >
 	<div id="logo">Your Career, Your Destiny</div>
 	<div id="menu">
-		<div class="left">
-			<%= link_to 'Home', home_index_path %>
-			<%= link_to 'Contacts', people_path %>
-			<%= link_to 'Companies' %>
-			<%= link_to 'Calendar' %>
-			<%= link_to 'Admin', admin_index_path %>
-		</div>
-		<div class="right">
-			<% if user_signed_in? %>
+		<% if user_signed_in? %>
+			<div class="left">
+				<%= link_to 'Home', home_index_path %>
+				<%= link_to 'Contacts', people_path %>
+				<%= link_to 'Companies', home_index_path %>
+				<%= link_to 'Calendar', home_index_path %>
+				<%= link_to 'Admin', admin_index_path %>
+			</div>
+			<div class="right">
 				<%= current_user.email %>. Not you?
 				<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-			<% else %>
+			</div>
+		<% else %>
+			<div class="left">
+				<%= link_to 'Home', home_index_path %>
+			</div>
+			<div class="right">
 				<%= link_to "Register", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %>
-			<% end %>
-		</div>	
+			</div>
+		<% end %>			
 	</div>
 
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+	<% flash.each do |key, msg| %>
+    	<%= content_tag :div, msg, :class => "flash_#{key}", :id => "flash_#{key}" %>
+    	<%= content_tag :script, :type => "text/javascript" do -%>
+        	setTimeout("new Effect.Fade('flash_<%= key %>');", 15000);
+    	<% end %>
+	<% end %>
 
 	<%= yield %>
 	
 	<div id="footer">
 		<%= link_to 'Home', people_path %> | 
+		<% if user_signed_in? %>
  			<%= link_to 'Contacts', people_path %> |
-			<%= link_to 'Companies' %> |
-			<%= link_to 'Calendar' %> |
-		<%= link_to 'Admin', admin_index_path  %>
+			<%= link_to 'Companies', home_index_path %> |
+			<%= link_to 'Calendar', home_index_path %> |
+			<%= link_to 'Admin', admin_index_path  %>
+		<% else %>
+			<%= link_to "Register", new_user_registration_path %> |
+			<%= link_to "Login", new_user_session_path %>
+		<% end %>	
 	</div>
 </body>
 </html>

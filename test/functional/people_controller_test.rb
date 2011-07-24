@@ -12,12 +12,13 @@ class PeopleControllerTest < ActionController::TestCase
     sign_in @user
     get :index
     assert_response :success
+    private_menu_displayed
     assert_not_nil assigns(:people)
   end
 
   test "logout user get index redirect signin" do
     sign_out @user
-    get :index
+    get :index    
     assert_redirected_to user_session_path
   end
   
@@ -25,6 +26,7 @@ class PeopleControllerTest < ActionController::TestCase
     sign_in @user
     get :new
     assert_response :success
+    private_menu_displayed    
   end
 
   test "user logout get new redirect signin" do
@@ -52,6 +54,7 @@ class PeopleControllerTest < ActionController::TestCase
     sign_in @user
     get :show, :id => @person.to_param
     assert_response :success
+    private_menu_displayed
   end
 
   test "user logout show user redirect signin" do
@@ -64,6 +67,7 @@ class PeopleControllerTest < ActionController::TestCase
     sign_in @user
     get :edit, :id => @person.to_param
     assert_response :success
+    private_menu_displayed
   end
 
   test "user logout get edit redirect signin" do

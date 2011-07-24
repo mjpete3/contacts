@@ -13,7 +13,7 @@ class PeopleController < ApplicationController
     else
       @people = Person.logged_in_user(current_user.id).order(:last_name).alphabetical_group(params[:letter])
     end
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @people }

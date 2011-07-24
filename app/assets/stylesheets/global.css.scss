@@ -21,6 +21,11 @@ a {
   &:active { text-decoration: none; }
 }
 
+div {
+  &.field, &.actions {
+    margin-bottom: 10px; 
+  } 
+}
 
 #logo {
   height: 128px;
@@ -38,6 +43,7 @@ a {
   margin-bottom: 8px;
   padding-top: 8px;
   height:32px;
+  border-radius: 5px;
   background: url(white_background.jpg) repeat left top;
   background-color: transparent;
   font-size: 12px;
@@ -80,7 +86,7 @@ a {
     font-size: 16px;
     text-align: center;
        
-    a {
+    a, input {
       width: 190px;
       height: 25px;
       padding-top: 4px;
@@ -88,8 +94,25 @@ a {
       background: url(white_background.jpg) repeat left top;
       border-radius: 5px;
     }
+    
+    input {
+      border: none;
+      color: #6494c0;  
+      height: 28px; 
+      font-size: 16px;
+      padding-top: 2px;
+      padding-bottom: 7px;
+      text-decoration: none;
+  
+      &:hover { text-decoration: underline; }
+      &:active { text-decoration: none; }
+    }
 }
 
+#form {
+  margin-left: 250px;
+  padding-bottom: 15px;
+}
 
 #footer {
   clear: both;
@@ -100,12 +123,20 @@ a {
   color:#c4c3c3;
 }
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px; } }
+.flash_notice { 
+  padding: 15px 15px 15px 15px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background: url(white_background.jpg) repeat left top;
+  border-radius: 5px;
+  text-align: center;
+  color:#c4c3c3;
+  font-size: 24px;
+}
 
-#notice {
-  color: green; }
+
 
 .field_with_errors {
   padding: 2px;

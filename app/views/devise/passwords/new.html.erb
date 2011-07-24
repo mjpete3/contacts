@@ -1,0 +1,16 @@
+<%= page_title "Password" %>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+	<div class='sidebar'>
+		<%= f.submit "Send Instructions" %>
+	</div>
+	<%= render :partial => "devise/shared/links" %>
+  	<%= devise_error_messages! %>
+  	
+  	<div id='form'>  		
+		<p>Enter your email address and click on "Send Instructions"</p>
+  		<p><%= f.label :email %><br />
+  		<%= f.email_field :email %></p>
+  	</div>
+<% end %>
+

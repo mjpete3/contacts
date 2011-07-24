@@ -1,0 +1,14 @@
+<%= page_title "Unlock Account" %>
+
+<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+	<div class='sidebar'>
+		<%= f.submit "Resend unlock instructions" %>
+	</div>
+	<%= render :partial => "devise/shared/links" %> 
+	<%= devise_error_messages! %>
+	
+  	<div id='form'>  	
+  		<p><%= f.label :email %><br />
+  		<%= f.email_field :email %></p>
+	</div>
+<% end %>
